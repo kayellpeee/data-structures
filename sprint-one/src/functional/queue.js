@@ -13,7 +13,7 @@ var makeQueue = function(){
   };
 
   someInstance.dequeue = function(){
-      result = storage[0];
+      var result = storage[0];
       delete storage[0];
       for(var i = 0; i < size-1; i++){
         storage[i] = storage[i+1];
