@@ -4,13 +4,16 @@ var makeLinkedList = function(){
   list.tail = null;
 
   list.addToTail = function(value){
-    var newNode = makeNode(value);  //makes newNode
+    //makes newNode
+    var newNode = makeNode(value);
     if(this.tail !== null){
-      this.tail.next = newNode;     //old tail node now links to newNode
+      //old tail node now links to newNode
+      this.tail.next = newNode;     
     }else {
       this.head = newNode;
     }
-    this.tail = newNode;  //tail is always updated to newNode
+    //tail is always updated to newNode
+    this.tail = newNode;  
   };
 
   list.removeHead = function(){
