@@ -1,13 +1,10 @@
 var makeStack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  var someInstance = {
-    push: stackMethods.push,
-    pop: stackMethods.pop,
-    size: stackMethods.size,
-    storage: {},
-    capacity: 0
-  }
+  var someInstance = {};
+  _(someInstance).extend(stackMethods);
+  someInstance.storage = {};
+  someInstance.capacity= 0;
   return someInstance;
 };
 

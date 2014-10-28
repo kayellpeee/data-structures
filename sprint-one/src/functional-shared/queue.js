@@ -1,13 +1,10 @@
 var makeQueue = function(){
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  var someInstance = {
-    enqueue: queueMethods.enqueue,
-    dequeue: queueMethods.dequeue,
-    size: queueMethods.size,
-    storage: {},
-    capacity: 0
-  };
+  var someInstance = {};
+  _(someInstance).extend(queueMethods);
+  someInstance.storage = {};
+  someInstance.capacity = 0;
   return someInstance;
 };
 
