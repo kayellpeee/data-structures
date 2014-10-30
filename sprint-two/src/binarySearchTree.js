@@ -27,7 +27,6 @@ makeBinarySearchTree.prototype.insert = function(value){
 makeBinarySearchTree.prototype.contains = function(value){
   var found = false;
   var searchTree = function(node){
-    debugger;
     if( node.value === value ){
       return found = true;
     }
