@@ -10,9 +10,11 @@ describe('linkedList', function() {
     expect(linkedList).to.have.property("tail");
   });
 
-  it('should have methods named "addToTail", "removeHead", and "contains"', function() {
+  it('should have methods named "addToTail", "removeHead", "addToHead", "removeTail", and "contains"', function() {
     expect(linkedList.addToTail).to.be.a("function");
     expect(linkedList.removeHead).to.be.a("function");
+    expect(linkedList.addToHead).to.be.a("function");
+    expect(linkedList.removeTail).to.be.a("function");
     expect(linkedList.contains).to.be.a("function");
   });
 
@@ -52,4 +54,19 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should designate a new head when addToHead is called', function(){
+    linkedList.addToHead(4);
+    expect(linkedList.head.value).to.equal(4);
+    linkedList.addToHead(5);
+    expect(linkedList.head.value).to.equal(5);
+  });
+
+  it('should remove the tail from the list when removeTail is called', function(){
+    linkedList.addToHead(4);
+    linkedList.addToHead(5);
+    expect(linkedList.tail.value).to.equal(4);
+    linkedList.removeTail();
+    expect(linkedList.tail.value).to.equal(5);
+  });
+
 });
