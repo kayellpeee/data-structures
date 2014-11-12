@@ -6,6 +6,7 @@ var makeTree = function(value){
   newTree.addChild = treeMethods.addChild;
   newTree.contains = treeMethods.contains;
   newTree.removeFromParent = treeMethods.removeFromParent;
+  newTree.traverse = treeMethods.traverse;
   return newTree;
 };
 
@@ -45,7 +46,19 @@ treeMethods.removeFromParent = function(){
 
   // set their parent to null
   this.parent = null;
+};
 
+treeMethods.traverse = function(callback){
+  if( !this.children ){
+    callback(this);
+    return;
+  }
+  this.children.forEach(function(node){
+    node.traverse(callback);
+  });
+  if( this.value ){
+    callback(this);
+  }
 };
 
 
@@ -53,5 +66,6 @@ treeMethods.removeFromParent = function(){
  * Complexity: What is the time complexity of the above functions?
  * addChild - constant
  * contains - linear
- * removeFromParent - linear for increase in removed tree's siblings
+ * removeFromParent - logn (linear for increase in removed tree's siblings)
+ * traverse - linear
  */
